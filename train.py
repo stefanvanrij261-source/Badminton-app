@@ -10,7 +10,7 @@ import tensorflow as tf
 # ============================================
 # CONFIGURATIE
 # ============================================
-DATASET_DIR = "data/videos"  # Hier zet je je video mappen
+DATASET_DIR = "video's"  # ✅ GEFIXT - wijst nu naar jouw video's folder
 MODEL_SAVE_PATH = "models/badminton_model.h5"
 FRAME_COUNT = 30  # Hoeveel frames per video
 IMG_SIZE = 224  # Resolutie
@@ -24,7 +24,7 @@ def load_video_data(dataset_dir, frame_count=FRAME_COUNT, img_size=IMG_SIZE):
     """
     Laad alle videos uit mappen
     Mapstructuur:
-    data/videos/
+    video's/
     ├─ smash/
     │  ├─ video1.mp4
     │  ├─ video2.mp4
@@ -219,8 +219,8 @@ if __name__ == "__main__":
         print("❌ FOUT: Geen videos gevonden!")
         print(f"Zorg dat je mappen hebt hier: {DATASET_DIR}")
         print("Voorbeeld structuur:")
-        print("  data/videos/smash/video1.mp4")
-        print("  data/videos/clear/video1.mp4")
+        print("  video's/smash/video1.mp4")
+        print("  video's/clear/video1.mp4")
         exit(1)
     
     # Train model
