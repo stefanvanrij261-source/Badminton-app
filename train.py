@@ -1,4 +1,6 @@
 import os
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'  # Disable MKL om geheugen probleem op te lossen
+
 import cv2
 import numpy as np
 from pathlib import Path
@@ -10,7 +12,7 @@ import tensorflow as tf
 # ============================================
 # CONFIGURATIE
 # ============================================
-DATASET_DIR = "video's"  # ✅ GEFIXT - wijst nu naar jouw video's folder
+DATASET_DIR = "video's"  # Wijst naar jouw video's folder
 MODEL_SAVE_PATH = "models/badminton_model.h5"
 FRAME_COUNT = 30  # Hoeveel frames per video
 IMG_SIZE = 224  # Resolutie
@@ -28,8 +30,8 @@ def load_video_data(dataset_dir, frame_count=FRAME_COUNT, img_size=IMG_SIZE):
     ├─ smash/
     │  ├─ video1.mp4
     │  ├─ video2.mp4
+    ├─ lift/
     ├─ clear/
-    ├─ drop/
     └─ ...
     """
     videos = []
@@ -220,7 +222,7 @@ if __name__ == "__main__":
         print(f"Zorg dat je mappen hebt hier: {DATASET_DIR}")
         print("Voorbeeld structuur:")
         print("  video's/smash/video1.mp4")
-        print("  video's/clear/video1.mp4")
+        print("  video's/lift/video1.mp4")
         exit(1)
     
     # Train model
